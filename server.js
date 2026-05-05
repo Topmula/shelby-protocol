@@ -12,10 +12,24 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('MongoDB connected!'))
-  .catch(err => console.error('MongoDB error:', err));
+// PERSISTENT MongoDB CONNECTION
+let isConnected = false;
+
+async function connectDB() {
+  if (isConnected && mongoose.connection.readyState === 1) return;
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
+    isConnected = true;
+    console.log('MongoDB connected!');
+  } catch (err) {
+    isConnected = false;
+    console.error('MongoDB error:', err.message);
+    throw err;
+  }
+}
 
 // USER SCHEMA
 const userSchema = new mongoose.Schema({
@@ -122,6 +136,7 @@ function sanitize(user) {
 // Register
 app.post('/api/register', async (req, res) => {
   try {
+    await connectDB();
     const { name, username, password } = req.body;
     if (!name || !username || !password) return res.json({ success: false, message: 'All fields required' });
     const exists = await User.findOne({ username: username.toLowerCase() });
@@ -142,13 +157,15 @@ app.post('/api/register', async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     res.json({ success: true, token, user: sanitize(user) });
   } catch (err) {
-    res.json({ success: false, message: 'Registration failed' });
+    console.error('Register error:', err.message);
+    res.json({ success: false, message: 'Registration failed. Try again.' });
   }
 });
 
 // Login
 app.post('/api/login', async (req, res) => {
   try {
+    await connectDB();
     const { username, password } = req.body;
     const user = await User.findOne({ username: username.toLowerCase() });
     if (!user) return res.json({ success: false, message: 'Username not found' });
@@ -159,13 +176,15 @@ app.post('/api/login', async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     res.json({ success: true, token, user: sanitize(user) });
   } catch (err) {
-    res.json({ success: false, message: 'Login failed' });
+    console.error('Login error:', err.message);
+    res.json({ success: false, message: 'Login failed. Try again.' });
   }
 });
 
 // Get me
 app.get('/api/me', authMiddleware, async (req, res) => {
   try {
+    await connectDB();
     const user = await User.findById(req.user.id);
     if (!user) return res.json({ success: false, message: 'User not found' });
     checkDayReset(user);
@@ -182,6 +201,7 @@ app.get('/api/me', authMiddleware, async (req, res) => {
     await user.save();
     res.json({ success: true, user: sanitize(user) });
   } catch (err) {
+    console.error('Me error:', err.message);
     res.json({ success: false, message: 'Error fetching user' });
   }
 });
@@ -189,6 +209,7 @@ app.get('/api/me', authMiddleware, async (req, res) => {
 // Complete task
 app.post('/api/task/complete', authMiddleware, async (req, res) => {
   try {
+    await connectDB();
     const { taskId } = req.body;
     const user = await User.findById(req.user.id);
     if (!user) return res.json({ success: false });
@@ -221,13 +242,13 @@ app.post('/api/task/complete', authMiddleware, async (req, res) => {
     }
     await user.save();
     res.json({
-      success: true,
-      user: sanitize(user),
+      success: true, user: sanitize(user),
       rankChanged: newRank.rank !== prevRank.rank,
       rankUp: newRank.rank < prevRank.rank,
       newRank
     });
   } catch (err) {
+    console.error('Task error:', err.message);
     res.json({ success: false, message: 'Error completing task' });
   }
 });
@@ -235,6 +256,7 @@ app.post('/api/task/complete', authMiddleware, async (req, res) => {
 // Add task
 app.post('/api/task/add', authMiddleware, async (req, res) => {
   try {
+    await connectDB();
     const { name } = req.body;
     const user = await User.findById(req.user.id);
     if (!user || !name) return res.json({ success: false });
@@ -249,6 +271,7 @@ app.post('/api/task/add', authMiddleware, async (req, res) => {
 // Delete task
 app.delete('/api/task/:id', authMiddleware, async (req, res) => {
   try {
+    await connectDB();
     const user = await User.findById(req.user.id);
     if (!user) return res.json({ success: false });
     user.tasks = user.tasks.filter(t => t.id !== parseInt(req.params.id));
@@ -262,6 +285,7 @@ app.delete('/api/task/:id', authMiddleware, async (req, res) => {
 // Save reflection
 app.post('/api/reflection', authMiddleware, async (req, res) => {
   try {
+    await connectDB();
     const { text, question } = req.body;
     const user = await User.findById(req.user.id);
     if (!user || !text) return res.json({ success: false });
@@ -279,6 +303,7 @@ app.post('/api/reflection', authMiddleware, async (req, res) => {
 // Tommy AI
 app.post('/api/tommy', authMiddleware, async (req, res) => {
   try {
+    await connectDB();
     const user = await User.findById(req.user.id);
     if (!user) return res.json({ success: false });
     const rank = getRankInfo(user.xp);
@@ -314,5 +339,5 @@ app.post('/api/tommy', authMiddleware, async (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Shelby Protocol running on http://localhost:${process.env.PORT}`);
+  console.log(`Shelby Protocol running on http://localhost:${process.env.PORT || 3000}`);
 });
