@@ -26,197 +26,80 @@
       min-height: 100vh; display: flex;
       flex-direction: column; position: relative; overflow: hidden;
     }
-
     .auth-bg {
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
       background-image: url('/tommy.jpg');
       background-size: cover; background-position: center top;
-      filter: brightness(0.35);
-      z-index: 0;
+      filter: brightness(0.35); z-index: 0;
     }
-
     .auth-bg::after {
-      content: '';
-      position: absolute; bottom: 0; left: 0;
+      content: ''; position: absolute; bottom: 0; left: 0;
       width: 100%; height: 60%;
       background: linear-gradient(to top, #0a0a0a 40%, transparent);
     }
-
     .auth-content {
       position: relative; z-index: 1;
       display: flex; flex-direction: column;
       min-height: 100vh; padding: 0 24px 40px;
     }
-
     .auth-top {
       flex: 1; display: flex; flex-direction: column;
       align-items: center; justify-content: flex-end;
       padding-bottom: 32px; text-align: center;
     }
-
-    .auth-label {
-      font-size: 11px; letter-spacing: 4px; color: #c8a000;
-      text-transform: uppercase; margin-bottom: 10px;
-    }
-
-    .auth-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.5rem; letter-spacing: 6px; color: #fff;
-      line-height: 1; margin-bottom: 8px;
-    }
-
+    .auth-label { font-size: 11px; letter-spacing: 4px; color: #c8a000; text-transform: uppercase; margin-bottom: 10px; }
+    .auth-title { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 6px; color: #fff; line-height: 1; margin-bottom: 8px; }
     .auth-title span { color: #c8a000; }
-
-    .auth-subtitle {
-      font-size: 11px; color: #666; letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .auth-tabs {
-      display: flex; background: #111; border-radius: 12px;
-      padding: 4px; margin-bottom: 16px;
-    }
-
-    .auth-tab {
-      flex: 1; padding: 10px; text-align: center;
-      border-radius: 10px; cursor: pointer;
-      font-size: 12px; font-weight: 600; color: #444;
-      letter-spacing: 2px; text-transform: uppercase; transition: all 0.2s;
-    }
-
+    .auth-subtitle { font-size: 11px; color: #666; letter-spacing: 3px; text-transform: uppercase; }
+    .auth-tabs { display: flex; background: #111; border-radius: 12px; padding: 4px; margin-bottom: 16px; }
+    .auth-tab { flex: 1; padding: 10px; text-align: center; border-radius: 10px; cursor: pointer; font-size: 12px; font-weight: 600; color: #444; letter-spacing: 2px; text-transform: uppercase; transition: all 0.2s; }
     .auth-tab.active { background: #c8a000; color: #000; }
-
-    .auth-card {
-      background: rgba(17,17,17,0.95);
-      border: 1px solid #1e1e1e; border-radius: 20px; padding: 24px;
-    }
-
-    .auth-input {
-      width: 100%; background: #0a0a0a; border: 1px solid #1e1e1e;
-      border-radius: 10px; padding: 13px 16px; font-size: 14px;
-      color: #fff; outline: none; margin-bottom: 10px;
-      font-family: 'Inter', sans-serif; transition: border 0.2s;
-    }
-
+    .auth-card { background: rgba(17,17,17,0.95); border: 1px solid #1e1e1e; border-radius: 20px; padding: 24px; }
+    .auth-input { width: 100%; background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 10px; padding: 13px 16px; font-size: 14px; color: #fff; outline: none; margin-bottom: 10px; font-family: 'Inter', sans-serif; transition: border 0.2s; }
     .auth-input:focus { border-color: #c8a000; }
     .auth-input::placeholder { color: #333; }
-
-    .auth-btn {
-      width: 100%; padding: 14px; background: #c8a000;
-      color: #000; border: none; border-radius: 12px;
-      font-size: 12px; font-weight: 700; cursor: pointer;
-      letter-spacing: 3px; text-transform: uppercase; transition: opacity 0.2s;
-    }
-
+    .auth-note { font-size: 11px; color: #444; text-align: center; margin-bottom: 12px; letter-spacing: 0.5px; }
+    .auth-btn { width: 100%; padding: 14px; background: #c8a000; color: #000; border: none; border-radius: 12px; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 3px; text-transform: uppercase; transition: opacity 0.2s; }
     .auth-btn:hover { opacity: 0.9; }
     .auth-error { color: #ff4444; font-size: 12px; text-align: center; margin-top: 10px; display: none; }
 
     /* INSTALL BANNER */
-    #install-banner {
-      display: none; position: fixed; bottom: 20px;
-      left: 50%; transform: translateX(-50%);
-      width: 90%; max-width: 400px;
-      background: #111; border: 1px solid #c8a000;
-      border-radius: 16px; padding: 16px; z-index: 999;
-    }
-
-    #install-banner h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem; letter-spacing: 2px; color: #c8a000; margin-bottom: 6px;
-    }
-
+    #install-banner { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: #111; border: 1px solid #c8a000; border-radius: 16px; padding: 16px; z-index: 999; }
+    #install-banner h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; color: #c8a000; margin-bottom: 6px; }
     #install-banner p { font-size: 12px; color: #666; margin-bottom: 12px; }
-
     #install-banner .banner-btns { display: flex; gap: 8px; }
-
-    #install-banner .btn-install {
-      flex: 1; padding: 10px; background: #c8a000; color: #000;
-      border: none; border-radius: 8px; font-size: 12px;
-      font-weight: 700; cursor: pointer; letter-spacing: 1px; text-transform: uppercase;
-    }
-
-    #install-banner .btn-dismiss {
-      padding: 10px 16px; background: #1a1a1a; color: #555;
-      border: none; border-radius: 8px; font-size: 12px; cursor: pointer;
-    }
+    #install-banner .btn-install { flex: 1; padding: 10px; background: #c8a000; color: #000; border: none; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; }
+    #install-banner .btn-dismiss { padding: 10px 16px; background: #1a1a1a; color: #555; border: none; border-radius: 8px; font-size: 12px; cursor: pointer; }
 
     /* IOS BANNER */
-    #ios-banner {
-      display: none; position: fixed; bottom: 20px;
-      left: 50%; transform: translateX(-50%);
-      width: 90%; max-width: 400px;
-      background: #111; border: 1px solid #c8a000;
-      border-radius: 16px; padding: 16px; z-index: 999; text-align: center;
-    }
-
-    #ios-banner h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem; letter-spacing: 2px; color: #c8a000; margin-bottom: 6px;
-    }
-
+    #ios-banner { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: #111; border: 1px solid #c8a000; border-radius: 16px; padding: 16px; z-index: 999; text-align: center; }
+    #ios-banner h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; color: #c8a000; margin-bottom: 6px; }
     #ios-banner p { font-size: 12px; color: #666; line-height: 1.6; margin-bottom: 12px; }
-
-    #ios-banner button {
-      padding: 10px 24px; background: #c8a000; color: #000;
-      border: none; border-radius: 8px; font-size: 12px;
-      font-weight: 700; cursor: pointer; letter-spacing: 1px; text-transform: uppercase;
-    }
+    #ios-banner button { padding: 10px 24px; background: #c8a000; color: #000; border: none; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; }
 
     /* MAIN APP */
     .app { display: none; flex-direction: column; min-height: 100vh; }
     .app.visible { display: flex; }
 
     /* HEADER */
-    .header {
-      background: #0d0d0d; border-bottom: 1px solid #1a1a1a;
-      padding: 12px 16px; display: flex;
-      align-items: center; justify-content: space-between;
-      flex-shrink: 0; position: sticky; top: 0; z-index: 10;
-    }
-
-    .header-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem; letter-spacing: 3px; color: #fff;
-    }
-
+    .header { background: #0d0d0d; border-bottom: 1px solid #1a1a1a; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: sticky; top: 0; z-index: 10; }
+    .header-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 3px; color: #fff; }
     .header-logo span { color: #c8a000; }
-
-    .header-right { display: flex; align-items: center; gap: 10px; }
+    .header-right { display: flex; align-items: center; gap: 8px; }
     .header-user { font-size: 11px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
-
-    .logout-btn {
-      background: none; border: 1px solid #2a2a2a; color: #444;
-      padding: 5px 10px; border-radius: 8px; font-size: 10px;
-      cursor: pointer; letter-spacing: 1px; text-transform: uppercase;
-      transition: all 0.2s;
-    }
-
-    .logout-btn:hover { border-color: #c8a000; color: #c8a000; }
+    .header-btn { background: none; border: 1px solid #2a2a2a; color: #444; padding: 5px 10px; border-radius: 8px; font-size: 10px; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s; }
+    .header-btn:hover { border-color: #c8a000; color: #c8a000; }
 
     /* PAGES */
     .page { display: none; flex: 1; padding: 16px 16px 100px; max-width: 480px; margin: 0 auto; width: 100%; }
     .page.active { display: block; }
 
     /* RANK CARD */
-    .rank-card {
-      background: #111; border: 1px solid #1e1e1e;
-      border-radius: 16px; padding: 20px; margin-bottom: 14px;
-      position: relative; overflow: hidden;
-    }
-
-    .rank-card::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 4px; height: 100%; background: #c8a000;
-    }
-
+    .rank-card { background: #111; border: 1px solid #1e1e1e; border-radius: 16px; padding: 20px; margin-bottom: 14px; position: relative; overflow: hidden; }
+    .rank-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #c8a000; }
     .rank-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-
-    .rank-info h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem; letter-spacing: 2px; color: #c8a000; line-height: 1;
-    }
-
+    .rank-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; color: #c8a000; line-height: 1; }
     .rank-info p { font-size: 11px; color: #444; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
     .rank-badge { font-size: 42px; }
     .xp-bar-top { display: flex; justify-content: space-between; font-size: 11px; color: #444; margin-bottom: 6px; }
@@ -238,24 +121,11 @@
     .section-count { font-size: 11px; color: #333; }
 
     /* TASKS */
-    .task-card {
-      background: #111; border: 1px solid #1e1e1e; border-radius: 12px;
-      padding: 14px; margin-bottom: 8px; display: flex;
-      align-items: center; gap: 12px; cursor: pointer;
-      transition: all 0.2s; position: relative; overflow: hidden;
-    }
-
+    .task-card { background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
     .task-card:hover { border-color: #2a2a2a; }
     .task-card.completed { border-color: #1a2a1a; background: #0d1a0d; }
     .task-card.completed::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: #4caf50; }
-
-    .task-check {
-      width: 22px; height: 22px; border-radius: 50%;
-      border: 2px solid #2a2a2a; display: flex;
-      align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all 0.2s; font-size: 11px;
-    }
-
+    .task-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #2a2a2a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; font-size: 11px; }
     .task-card.completed .task-check { background: #4caf50; border-color: #4caf50; }
     .task-info { flex: 1; }
     .task-name { font-size: 14px; font-weight: 600; color: #e0e0e0; margin-bottom: 3px; }
@@ -265,80 +135,36 @@
     .task-card.completed .task-xp span { color: #2a7a2a; }
     .task-delete { background: none; border: none; color: #2a2a2a; cursor: pointer; font-size: 16px; padding: 4px; transition: color 0.2s; }
     .task-delete:hover { color: #ff4444; }
-
-    .add-task-btn {
-      width: 100%; padding: 13px; background: transparent;
-      border: 1px dashed #2a2a2a; border-radius: 12px; color: #333;
-      font-size: 11px; cursor: pointer; transition: all 0.2s;
-      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
-    }
-
+    .add-task-btn { width: 100%; padding: 13px; background: transparent; border: 1px dashed #2a2a2a; border-radius: 12px; color: #333; font-size: 11px; cursor: pointer; transition: all 0.2s; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
     .add-task-btn:hover { border-color: #c8a000; color: #c8a000; }
 
     /* TOMMY PAGE */
-    .tommy-card {
-      background: #111; border: 1px solid #1e1e1e;
-      border-radius: 16px; padding: 20px; margin-bottom: 14px;
-    }
-
+    .tommy-card { background: #111; border: 1px solid #1e1e1e; border-radius: 16px; padding: 20px; margin-bottom: 14px; }
     .tommy-label { font-size: 10px; letter-spacing: 3px; color: #c8a000; text-transform: uppercase; margin-bottom: 12px; }
     .tommy-message { font-size: 14px; color: #888; line-height: 1.8; font-style: italic; min-height: 60px; }
-
-    .tommy-btn {
-      width: 100%; padding: 12px; background: #1a1500;
-      border: 1px solid #c8a000; border-radius: 10px; color: #c8a000;
-      font-size: 11px; font-weight: 700; cursor: pointer; margin-top: 14px;
-      letter-spacing: 2px; text-transform: uppercase; transition: all 0.2s;
-    }
-
+    .tommy-btn { width: 100%; padding: 12px; background: #1a1500; border: 1px solid #c8a000; border-radius: 10px; color: #c8a000; font-size: 11px; font-weight: 700; cursor: pointer; margin-top: 14px; letter-spacing: 2px; text-transform: uppercase; transition: all 0.2s; }
     .tommy-btn:hover { background: #c8a000; color: #000; }
     .tommy-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
     /* REFLECTION */
-    .reflection-card {
-      background: #111; border: 1px solid #1e1e1e;
-      border-radius: 16px; padding: 20px; margin-bottom: 14px;
-    }
-
+    .reflection-card { background: #111; border: 1px solid #1e1e1e; border-radius: 16px; padding: 20px; margin-bottom: 14px; }
     .reflection-label { font-size: 10px; letter-spacing: 3px; color: #666; text-transform: uppercase; margin-bottom: 10px; }
     .reflection-question { font-size: 14px; color: #e0e0e0; margin-bottom: 12px; line-height: 1.6; }
-
-    .reflection-input {
-      width: 100%; background: #0a0a0a; border: 1px solid #1e1e1e;
-      border-radius: 10px; padding: 12px; font-size: 13px; color: #888;
-      outline: none; resize: none; height: 80px;
-      font-family: 'Inter', sans-serif; transition: border 0.2s;
-    }
-
+    .reflection-input { width: 100%; background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 10px; padding: 12px; font-size: 13px; color: #888; outline: none; resize: none; height: 80px; font-family: 'Inter', sans-serif; transition: border 0.2s; }
     .reflection-input:focus { border-color: #c8a000; color: #e0e0e0; }
     .reflection-input::placeholder { color: #222; }
-
-    .reflection-btn {
-      width: 100%; padding: 12px; background: #c8a000; color: #000;
-      border: none; border-radius: 10px; font-size: 11px; font-weight: 700;
-      cursor: pointer; margin-top: 10px; letter-spacing: 2px; text-transform: uppercase;
-    }
+    .reflection-btn { width: 100%; padding: 12px; background: #c8a000; color: #000; border: none; border-radius: 10px; font-size: 11px; font-weight: 700; cursor: pointer; margin-top: 10px; letter-spacing: 2px; text-transform: uppercase; }
 
     /* BADGES */
     .badges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-
-    .badge-card {
-      background: #111; border: 1px solid #1e1e1e;
-      border-radius: 12px; padding: 16px 10px; text-align: center;
-    }
-
+    .badge-card { background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 16px 10px; text-align: center; }
     .badge-card.earned { border-color: #c8a000; background: #1a1500; }
     .badge-icon { font-size: 28px; margin-bottom: 6px; }
     .badge-name { font-size: 10px; color: #333; letter-spacing: 1px; text-transform: uppercase; line-height: 1.4; }
     .badge-card.earned .badge-name { color: #c8a000; }
 
     /* RANKS PAGE */
-    .rank-row {
-      background: #111; border: 1px solid #1e1e1e;
-      border-radius: 12px; padding: 14px; margin-bottom: 8px;
-      display: flex; align-items: center; gap: 14px;
-    }
-
+    .rank-row { background: #111; border: 1px solid #1e1e1e; border-radius: 12px; padding: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 14px; }
     .rank-row.current { border-color: #c8a000; }
     .rank-row.unlocked { border-color: #1a2a1a; }
     .rank-row-badge { font-size: 26px; }
@@ -351,80 +177,48 @@
     .rank-row.current .rank-row-status { color: #c8a000; }
     .rank-row.unlocked .rank-row-status { color: #4caf50; }
 
-    /* MODAL */
-    .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.92); z-index: 100;
-      display: none; align-items: center; justify-content: center; padding: 20px;
-    }
-
+    /* MODAL BASE */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; }
     .modal-overlay.open { display: flex; }
-
-    .modal {
-      background: #111; border: 1px solid #222;
-      border-radius: 20px; padding: 24px; width: 100%; max-width: 380px;
-    }
-
-    .modal h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 16px; color: #c8a000;
-    }
-
-    .modal-input {
-      width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a;
-      border-radius: 10px; padding: 12px 16px; font-size: 14px; color: #fff;
-      outline: none; margin-bottom: 10px; font-family: 'Inter', sans-serif;
-    }
-
+    .modal { background: #111; border: 1px solid #222; border-radius: 20px; padding: 24px; width: 100%; max-width: 420px; max-height: 90vh; overflow-y: auto; }
+    .modal h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 16px; color: #c8a000; }
+    .modal-input { width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 12px 16px; font-size: 14px; color: #fff; outline: none; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
     .modal-input:focus { border-color: #c8a000; }
     .modal-input::placeholder { color: #333; }
     .modal-btns { display: flex; gap: 10px; margin-top: 6px; }
+    .modal-btn-confirm { flex: 1; padding: 12px; background: #c8a000; color: #000; border: none; border-radius: 10px; font-size: 11px; font-weight: 700; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; }
+    .modal-btn-cancel { flex: 1; padding: 12px; background: #1a1a1a; color: #444; border: none; border-radius: 10px; font-size: 13px; cursor: pointer; }
 
-    .modal-btn-confirm {
-      flex: 1; padding: 12px; background: #c8a000; color: #000;
-      border: none; border-radius: 10px; font-size: 11px; font-weight: 700;
-      cursor: pointer; letter-spacing: 1px; text-transform: uppercase;
-    }
+    /* HELP MODAL */
+    .help-tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+    .help-tab { padding: 6px 12px; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; font-size: 11px; color: #555; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s; }
+    .help-tab.active { background: #c8a000; color: #000; border-color: #c8a000; }
+    .help-content { display: none; }
+    .help-content.active { display: block; }
+    .help-section { margin-bottom: 16px; }
+    .help-section h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px; color: #c8a000; margin-bottom: 8px; }
+    .help-section p { font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 8px; }
+    .help-section ul { padding-left: 16px; }
+    .help-section ul li { font-size: 13px; color: #888; line-height: 1.8; }
+    .help-section ul li span { color: #c8a000; }
 
-    .modal-btn-cancel {
-      flex: 1; padding: 12px; background: #1a1a1a; color: #444;
-      border: none; border-radius: 10px; font-size: 13px; cursor: pointer;
-    }
+    /* FEEDBACK MODAL */
+    .feedback-textarea { width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 12px 16px; font-size: 14px; color: #fff; outline: none; margin-bottom: 10px; font-family: 'Inter', sans-serif; resize: none; height: 120px; }
+    .feedback-textarea:focus { border-color: #c8a000; }
+    .feedback-textarea::placeholder { color: #333; }
 
     /* TOAST */
-    .toast {
-      position: fixed; top: 20px; left: 50%;
-      transform: translateX(-50%); background: #c8a000; color: #000;
-      padding: 12px 24px; border-radius: 10px; font-weight: 700;
-      font-size: 12px; z-index: 200; display: none;
-      letter-spacing: 2px; text-transform: uppercase; white-space: nowrap;
-    }
-
+    .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #c8a000; color: #000; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 12px; z-index: 200; display: none; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
     .toast.show { display: block; animation: slideDown 0.3s ease; }
     @keyframes slideDown { from { transform: translateX(-50%) translateY(-20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
 
     /* BOTTOM NAV */
-    .bottom-nav {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: #0d0d0d; border-top: 1px solid #1a1a1a;
-      display: flex; justify-content: space-around;
-      padding: 10px 0 20px; z-index: 50;
-    }
-
-    .nav-item {
-      display: flex; flex-direction: column; align-items: center; gap: 3px;
-      cursor: pointer; color: #333; font-size: 9px; letter-spacing: 1px;
-      text-transform: uppercase; transition: color 0.2s; flex: 1;
-    }
-
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #0d0d0d; border-top: 1px solid #1a1a1a; display: flex; justify-content: space-around; padding: 10px 0 20px; z-index: 50; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; color: #333; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; flex: 1; }
     .nav-item.active { color: #c8a000; }
     .nav-item span:first-child { font-size: 20px; }
 
-    .page-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; letter-spacing: 3px; color: #fff; margin-bottom: 4px;
-    }
-
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 3px; color: #fff; margin-bottom: 4px; }
     .page-title span { color: #c8a000; }
     .page-subtitle { font-size: 11px; color: #333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
   </style>
@@ -473,6 +267,7 @@
         </div>
 
         <div id="form-register" style="display:none;">
+          <p class="auth-note">🔒 No email required. Your identity is your own.</p>
           <input class="auth-input" id="reg-name" placeholder="Your real name (e.g. Thomas)">
           <input class="auth-input" id="reg-username" placeholder="Choose a username">
           <input class="auth-input" type="password" id="reg-password" placeholder="Create a password" onkeypress="if(event.key==='Enter') register()">
@@ -490,7 +285,9 @@
       <div class="header-logo">SHELBY <span>PROTOCOL</span></div>
       <div class="header-right">
         <div class="header-user" id="header-user"></div>
-        <button class="logout-btn" onclick="logout()">Logout</button>
+        <button class="header-btn" onclick="openHelp()">Help</button>
+        <button class="header-btn" onclick="openFeedback()">Feedback</button>
+        <button class="header-btn" onclick="logout()">Logout</button>
       </div>
     </div>
 
@@ -541,13 +338,11 @@
     <div class="page" id="page-tommy">
       <div class="page-title">TOMMY'S <span>WORDS</span></div>
       <div class="page-subtitle">By Order of Thomas Shelby</div>
-
       <div class="tommy-card">
         <div class="tommy-label">⚔ Today's Message</div>
         <div class="tommy-message" id="tommy-message">Press the button below to receive your orders from Tommy Shelby himself.</div>
         <button class="tommy-btn" id="tommy-btn" onclick="getTommyMessage()">Get Today's Orders</button>
       </div>
-
       <div class="reflection-card">
         <div class="reflection-label">🪞 Daily Reflection</div>
         <div class="reflection-question" id="reflection-question">What did you do today that your future self will thank you for?</div>
@@ -592,7 +387,133 @@
     </div>
   </div>
 
+  <!-- HELP MODAL -->
+  <div class="modal-overlay" id="help-modal">
+    <div class="modal">
+      <h3>⚔ How It Works</h3>
+      <div class="help-tabs">
+        <div class="help-tab active" onclick="switchHelp('overview')">Overview</div>
+        <div class="help-tab" onclick="switchHelp('tasks')">Tasks</div>
+        <div class="help-tab" onclick="switchHelp('ranks')">Ranks</div>
+        <div class="help-tab" onclick="switchHelp('badges')">Badges</div>
+        <div class="help-tab" onclick="switchHelp('tommy')">Tommy</div>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="help-content active" id="help-overview">
+        <div class="help-section">
+          <h4>Welcome to Shelby Protocol</h4>
+          <p>This app turns your daily discipline into a game. You start at Rank 15 and work your way up to Rank 1 — Thomas Shelby — by completing daily tasks consistently.</p>
+          <p>The more you show up, the higher you climb. Miss days and your rank drops. There are no shortcuts.</p>
+        </div>
+        <div class="help-section">
+          <h4>How to earn XP</h4>
+          <ul>
+            <li><span>+1 XP</span> — Complete a task</li>
+            <li><span>+5 XP</span> — Complete ALL tasks in a day</li>
+            <li><span>+2 XP</span> — Submit a daily reflection</li>
+            <li><span>+1 XP</span> — Open the app daily (check-in)</li>
+          </ul>
+        </div>
+        <div class="help-section">
+          <h4>Reach Thomas Shelby in 30 days</h4>
+          <p>If you complete all tasks, reflect daily and check in every day — you will reach Rank 1 in exactly 30 days. Miss days and it takes longer.</p>
+        </div>
+      </div>
+
+      <!-- TASKS -->
+      <div class="help-content" id="help-tasks">
+        <div class="help-section">
+          <h4>Daily Non-Negotiables</h4>
+          <p>These are your daily tasks — things you MUST do every day. No excuses. No skipping.</p>
+          <p>Tap a task to mark it complete. Tap again to unmark it.</p>
+        </div>
+        <div class="help-section">
+          <h4>Adding Tasks</h4>
+          <p>Tap <span style="color:#c8a000;">+ Add Non-Negotiable</span> to create your own custom tasks. Each task gives you <span style="color:#c8a000;">+1 XP</span> when completed.</p>
+        </div>
+        <div class="help-section">
+          <h4>Daily Reset</h4>
+          <p>Tasks reset every day at midnight. If you don't complete all tasks before midnight your streak resets to 0 and you lose XP. Stay consistent.</p>
+        </div>
+        <div class="help-section">
+          <h4>All Tasks Bonus</h4>
+          <p>Complete ALL your tasks in one day and earn a <span style="color:#c8a000;">+5 XP bonus</span> on top of your task XP. This is how the best climb fast.</p>
+        </div>
+      </div>
+
+      <!-- RANKS -->
+      <div class="help-content" id="help-ranks">
+        <div class="help-section">
+          <h4>The Rank System</h4>
+          <p>There are 15 ranks. You start at the bottom — Street Rat — and earn your way to the top — Thomas Shelby.</p>
+          <p>Ranks are based on your total XP. Earn enough XP and you automatically rank up.</p>
+        </div>
+        <div class="help-section">
+          <h4>Rank Drops</h4>
+          <p>Miss tasks and lose XP. Lose enough XP and your rank drops. This is accountability — the Shelby way.</p>
+        </div>
+        <div class="help-section">
+          <h4>The Goal</h4>
+          <p>Reach <span style="color:#c8a000;">360 XP</span> to become Thomas Shelby. A perfect 30 days gets you there. Every day you skip delays you.</p>
+        </div>
+      </div>
+
+      <!-- BADGES -->
+      <div class="help-content" id="help-badges">
+        <div class="help-section">
+          <h4>Earning Badges</h4>
+          <p>Badges are awarded for milestones. Once earned they are yours forever — even if your rank drops.</p>
+        </div>
+        <div class="help-section">
+          <h4>Badge Types</h4>
+          <ul>
+            <li><span>📅 Check In</span> — Open the app for the first time</li>
+            <li><span>⚡ First Blood</span> — Complete your first task</li>
+            <li><span>🔒 Full Lockdown</span> — Complete ALL tasks in one day</li>
+            <li><span>🔥 Streak Badges</span> — Maintain 3, 7, 14, 30 day streaks</li>
+            <li><span>💪 Task Badges</span> — Complete 10, 50, 100 total tasks</li>
+            <li><span>🏆 Rank Badges</span> — Reach each new rank</li>
+            <li><span>👑 Thomas Shelby</span> — Reach the top rank</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TOMMY -->
+      <div class="help-content" id="help-tommy">
+        <div class="help-section">
+          <h4>Tommy's Words</h4>
+          <p>Every day Tommy Shelby gives you a personalised message based on your rank, XP and progress. It's powered by AI and speaks directly to you.</p>
+          <p>Tap <span style="color:#c8a000;">Get Today's Orders</span> to receive your daily message.</p>
+        </div>
+        <div class="help-section">
+          <h4>Daily Reflection</h4>
+          <p>Answer one reflection question per day. Be honest. No sugarcoating. Each reflection earns you <span style="color:#c8a000;">+2 XP</span>.</p>
+          <p>After 7 reflections you earn the <span style="color:#c8a000;">Deep Thinker</span> badge.</p>
+        </div>
+      </div>
+
+      <button class="modal-btn-cancel" style="width:100%;margin-top:16px;" onclick="closeHelp()">Close</button>
+    </div>
+  </div>
+
+  <!-- FEEDBACK MODAL -->
+  <div class="modal-overlay" id="feedback-modal">
+    <div class="modal">
+      <h3>📨 Send Feedback</h3>
+      <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.6;">Found a bug? Have a suggestion? Want to say something? We read every message.</p>
+      <textarea class="feedback-textarea" id="feedback-message" placeholder="Type your message here..."></textarea>
+      <div class="modal-btns">
+        <button class="modal-btn-confirm" onclick="sendFeedback()">Send Feedback</button>
+        <button class="modal-btn-cancel" onclick="closeFeedback()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Init EmailJS
+    emailjs.init('O8SiQy0FyENrPT50p');
+
     let token = localStorage.getItem('shelby_token');
     let userData = null;
 
@@ -672,12 +593,8 @@
     async function login() {
       const username = document.getElementById('login-username').value.trim();
       const password = document.getElementById('login-password').value;
-      const errorEl = document.getElementById('login-error');
       if (!username || !password) { showAuthError('login', 'Fill in all fields'); return; }
-      const res = await fetch('/api/login', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
+      const res = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username, password }) });
       const data = await res.json();
       if (data.success) { token = data.token; localStorage.setItem('shelby_token', token); loadApp(data.user); }
       else showAuthError('login', data.message);
@@ -688,10 +605,7 @@
       const username = document.getElementById('reg-username').value.trim();
       const password = document.getElementById('reg-password').value;
       if (!name || !username || !password) { showAuthError('reg', 'Fill in all fields'); return; }
-      const res = await fetch('/api/register', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, username, password })
-      });
+      const res = await fetch('/api/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, username, password }) });
       const data = await res.json();
       if (data.success) { token = data.token; localStorage.setItem('shelby_token', token); loadApp(data.user); }
       else showAuthError('reg', data.message);
@@ -731,15 +645,12 @@
       if (!userData) return;
       const rank = userData.rank;
       const allRanks = userData.allRanks;
-
       document.getElementById('header-user').innerText = `${userData.name} Shelby`;
       document.getElementById('rank-name').innerText = rank.name;
       document.getElementById('rank-badge').innerText = rank.badge;
-
       const rankIndex = allRanks.findIndex(r => r.rank === rank.rank);
       const nextRank = allRanks[rankIndex - 1];
       const prevRank = allRanks[rankIndex + 1];
-
       document.getElementById('xp-current').innerText = `${userData.xp} XP`;
       if (nextRank) {
         document.getElementById('xp-next').innerText = `Next: ${nextRank.xpRequired} XP`;
@@ -750,17 +661,14 @@
         document.getElementById('xp-next').innerText = 'MAX RANK 👑';
         document.getElementById('xp-bar-fill').style.width = '100%';
       }
-
       document.getElementById('streak-count').innerText = userData.streak;
       document.getElementById('xp-total').innerText = userData.xp;
       const completed = userData.tasks.filter(t => t.completed).length;
       document.getElementById('tasks-done').innerText = `${completed}/${userData.tasks.length}`;
       document.getElementById('tasks-count').innerText = `${userData.tasks.length} task${userData.tasks.length !== 1 ? 's' : ''}`;
-
       renderTasks();
       renderBadges();
       renderRanks();
-
       const qIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % REFLECTION_QUESTIONS.length;
       document.getElementById('reflection-question').innerText = REFLECTION_QUESTIONS[qIndex];
     }
@@ -788,7 +696,6 @@
       const rankBadges = userData.allRanks.map(r => ({ id: `RANK_${r.name}`, icon: r.badge, name: r.name }));
       const allBadges = [...ALL_BADGES, ...rankBadges];
       const unique = allBadges.filter((b, i, self) => self.findIndex(x => x.id === b.id) === i);
-
       document.getElementById('badges-grid').innerHTML = unique.map(badge => {
         const isEarned = earned.some(e => e === badge.id);
         return `
@@ -829,8 +736,7 @@
       });
       const data = await res.json();
       if (data.success) {
-        userData = data.user;
-        updateUI();
+        userData = data.user; updateUI();
         if (data.rankUp) showToast(`🏆 RANK UP — ${data.newRank.name}`);
         else {
           const allDone = userData.tasks.every(t => t.completed);
@@ -840,32 +746,18 @@
     }
 
     async function deleteTask(taskId) {
-      const res = await fetch(`/api/task/${taskId}`, {
-        method: 'DELETE',
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
+      const res = await fetch(`/api/task/${taskId}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } });
       const data = await res.json();
       if (data.success) { userData = data.user; updateUI(); }
     }
 
-    function openAddTask() {
-      document.getElementById('modal').classList.add('open');
-      document.getElementById('task-input').focus();
-    }
-
-    function closeModal() {
-      document.getElementById('modal').classList.remove('open');
-      document.getElementById('task-input').value = '';
-    }
+    function openAddTask() { document.getElementById('modal').classList.add('open'); document.getElementById('task-input').focus(); }
+    function closeModal() { document.getElementById('modal').classList.remove('open'); document.getElementById('task-input').value = ''; }
 
     async function addTask() {
       const name = document.getElementById('task-input').value.trim();
       if (!name) return;
-      const res = await fetch('/api/task/add', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name })
-      });
+      const res = await fetch('/api/task/add', { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ name }) });
       const data = await res.json();
       if (data.success) { userData = data.user; updateUI(); closeModal(); showToast('NON-NEGOTIABLE ADDED'); }
     }
@@ -875,10 +767,7 @@
       const msg = document.getElementById('tommy-message');
       btn.disabled = true; btn.innerText = 'Tommy is thinking...';
       msg.innerText = '...';
-      const res = await fetch('/api/tommy', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
-      });
+      const res = await fetch('/api/tommy', { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } });
       const data = await res.json();
       if (data.success) { msg.innerText = data.message; btn.innerText = 'Get New Orders'; }
       btn.disabled = false;
@@ -888,17 +777,43 @@
       const text = document.getElementById('reflection-input').value.trim();
       const question = document.getElementById('reflection-question').innerText;
       if (!text) return;
-      const res = await fetch('/api/reflection', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text, question })
-      });
+      const res = await fetch('/api/reflection', { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ text, question }) });
       const data = await res.json();
-      if (data.success) {
-        userData = data.user; updateUI();
-        document.getElementById('reflection-input').value = '';
-        showToast('+2 XP — REFLECTION SAVED');
+      if (data.success) { userData = data.user; updateUI(); document.getElementById('reflection-input').value = ''; showToast('+2 XP — REFLECTION SAVED'); }
+    }
+
+    // HELP
+    function openHelp() { document.getElementById('help-modal').classList.add('open'); }
+    function closeHelp() { document.getElementById('help-modal').classList.remove('open'); }
+    function switchHelp(tab) {
+      document.querySelectorAll('.help-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.help-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(`help-${tab}`).classList.add('active');
+    }
+
+    // FEEDBACK
+    function openFeedback() { document.getElementById('feedback-modal').classList.add('open'); }
+    function closeFeedback() { document.getElementById('feedback-modal').classList.remove('open'); document.getElementById('feedback-message').value = ''; }
+
+    async function sendFeedback() {
+      const message = document.getElementById('feedback-message').value.trim();
+      if (!message) { showToast('TYPE A MESSAGE FIRST'); return; }
+      const btn = document.querySelector('#feedback-modal .modal-btn-confirm');
+      btn.disabled = true; btn.innerText = 'Sending...';
+      try {
+        await emailjs.send('service_kglw59n', 'template_sj8lr48', {
+          from_name: userData?.name || 'Unknown',
+          username: userData?.username || 'Unknown',
+          rank: userData?.rank?.name || 'Unknown',
+          message: message
+        });
+        showToast('FEEDBACK SENT — THANK YOU');
+        closeFeedback();
+      } catch (err) {
+        showToast('FAILED TO SEND — TRY AGAIN');
       }
+      btn.disabled = false; btn.innerText = 'Send Feedback';
     }
 
     function showPage(page) {
